@@ -120,15 +120,10 @@ class Deauther:
 		print(" \/  \/|___/ \____/\_| |_/\___/  \_/ \_| |_/\____/\_| \_|")
 		print("				Coded by Wellington Cimento\n")
 
-
-	def infos(self):
-		print(f"Networks: {len(self.networks.items())}\n")
-
-
+		
 	def run(self):
 		self.slogan()
 		self.separator()
-		#self.infos()
 		self.how_to_use()
 		self.configure()
 		self.start()
